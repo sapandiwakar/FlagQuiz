@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>FlagQuiz</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <!-- FlagQuiz references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/default.js"></script>
+    <script src="/js/data.js"></script>
+
+</head>
+<body>
+    <p>Content goes here</p>
+
+    
+    <div id="mediumListIconTextTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
+        <div class="mediumListIconTextItem">
+            <img src="#" class="mediumListIconTextItem-Image" data-win-bind="src: picture" />
+            <div class="mediumListIconTextItem-Detail">
+                <input class="input-box win-interactive" type="text" />
+                <h4 data-win-bind="innerText: title"></h4>
+                <h6 data-win-bind="innerText: text"></h6>
+            </div>
+        </div>
+    </div>
+    
+
+    <div id="basicListView" data-win-control="WinJS.UI.ListView" 
+        data-win-options="{
+            itemDataSource : DataExample.itemList.dataSource, 
+            itemTemplate: MyInteractiveTemplate,
+            selectionMode: 'multi'
+        }">
+    </div>
+
+</body>
+</html>
