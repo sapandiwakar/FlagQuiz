@@ -1,6 +1,9 @@
 ﻿// For an introduction to the Blank template, see the following documentation:
 // http://go.microsoft.com/fwlink/?LinkId=232509
 
+var applicationData = Windows.Storage.ApplicationData.current;
+var localSettings = applicationData.localSettings;
+
 var MyInteractiveTemplate = WinJS.Utilities.markSupportedForProcessing(function MyInteractiveTemplate(itemPromise) {
     return itemPromise.then(function (currentItem) {
         var result = document.createElement("div");
@@ -21,15 +24,16 @@ var MyInteractiveTemplate = WinJS.Utilities.markSupportedForProcessing(function 
         result.appendChild(body);
 
         // Display title
-        var title = document.createElement("h4");
-        title.innerText = currentItem.data.title;
-        body.appendChild(title);
+        //var title = document.createElement("h4");
+        //title.innerText = currentItem.data.title;
+        //body.appendChild(title);
 
         // Create a new rating control with the .win-interactive class
         // so ListView ignores touch events
         var inputControl = document.createElement("input");
         inputControl.type = "text";
         WinJS.Utilities.addClass(inputControl, "win-interactive");
+        WinJS.Utilities.addClass(inputControl, "flag-answer-field");
         body.appendChild(inputControl);
 
         // Update the rating with a userRating if one exists, or else
@@ -48,6 +52,16 @@ var MyInteractiveTemplate = WinJS.Utilities.markSupportedForProcessing(function 
         // Attach an event listener on the rating control
         inputControl.onfocusout = function (event) {
             if (isCorrect(inputControl, currentItem)) {
+
+                var correctFlags = Windows.Storage.ApplicationData.current.localSettings.values['correctFlags'];
+                if (correctFlags === undefined)
+                    correctFlags = [];
+                else
+                    correctFlags = JSON.parse(correctFlags);
+
+                correctFlags.push(currentItem.index);
+                Windows.Storage.ApplicationData.current.localSettings.values['correctFlags'] = JSON.stringify(correctFlags);
+
                 inputControl.disabled = true;
                 var listView = document.querySelector('#basicListView').winControl;
                 listView.selection.add(currentItem.index);
@@ -62,7 +76,7 @@ function isCorrect(inputControl, currentItem) {
     // TODO: Check if the answer was correct.
     // inputControl.value = user entered value
     // currentItem.index = index of flag.
-    return true;
+    return (currentItem.data.title === inputControl.value);
 }
 
 (function () {
@@ -84,6 +98,17 @@ function isCorrect(inputControl, currentItem) {
             }
             args.setPromise(WinJS.UI.processAll());
 
+            var correctFlags = Windows.Storage.ApplicationData.current.localSettings.values['correctFlags'];
+            if (correctFlags === undefined)
+                correctFlags = [];
+            else 
+                correctFlags = JSON.parse(correctFlags);
+
+            var listView = document.querySelector('#basicListView').winControl;
+            listView.selection.set(correctFlags);
+            listView.addEventListener('loadingstatechanged', function () {
+                    disableInputForSelectedItems(listView);
+            });
             
         }
     };
@@ -98,4 +123,24 @@ function isCorrect(inputControl, currentItem) {
     };
 
     app.start();
+
+    function disableInputForSelectedItems(listView) {
+        // Get the number of currently selected items
+        var selectionCount = listView.selection.count();
+
+        // Report the number
+        if (selectionCount > 0) {
+            // Get the actual selected items
+            listView.selection.getItems().done(function (currentSelection) {
+                var listView = document.querySelector('#basicListView').winControl;
+                currentSelection.forEach(function (selectedItem) {
+                    var element = listView.elementFromIndex(selectedItem.index);
+                    var inputControl = element.querySelector('.flag-answer-field');
+                    inputControl.value = selectedItem.data.title;
+                    inputControl.disabled = true;
+                });
+            });
+
+        }
+    }
 })();
