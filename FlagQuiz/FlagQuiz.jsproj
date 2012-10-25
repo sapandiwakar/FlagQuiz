@@ -54,6 +54,92 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <Content Include="default.html" />
+    <Content Include="images\flags\Afghanistan.png" />
+    <Content Include="images\flags\Albania.png" />
+    <Content Include="images\flags\Algeria.png" />
+    <Content Include="images\flags\Antarctica.png" />
+    <Content Include="images\flags\Argentina.png" />
+    <Content Include="images\flags\Australia.png" />
+    <Content Include="images\flags\Austria.png" />
+    <Content Include="images\flags\Bangladesh.png" />
+    <Content Include="images\flags\Barbados.png" />
+    <Content Include="images\flags\Belgium.png" />
+    <Content Include="images\flags\Brazil.png" />
+    <Content Include="images\flags\Cambodia.png" />
+    <Content Include="images\flags\Canada.png" />
+    <Content Include="images\flags\Chile.png" />
+    <Content Include="images\flags\China.png" />
+    <Content Include="images\flags\Colombia.png" />
+    <Content Include="images\flags\Costa-Rica.png" />
+    <Content Include="images\flags\Cuba.png" />
+    <Content Include="images\flags\Czech-Republic.png" />
+    <Content Include="images\flags\Denmark.png" />
+    <Content Include="images\flags\Egypt.png" />
+    <Content Include="images\flags\England.png" />
+    <Content Include="images\flags\Finland.png" />
+    <Content Include="images\flags\France.png" />
+    <Content Include="images\flags\Germany.png" />
+    <Content Include="images\flags\Ghana.png" />
+    <Content Include="images\flags\Greece.png" />
+    <Content Include="images\flags\Hong-Kong.png" />
+    <Content Include="images\flags\Hungary.png" />
+    <Content Include="images\flags\Iceland.png" />
+    <Content Include="images\flags\India.png" />
+    <Content Include="images\flags\Indonesia.png" />
+    <Content Include="images\flags\Iran.png" />
+    <Content Include="images\flags\Iraq.png" />
+    <Content Include="images\flags\Ireland.png" />
+    <Content Include="images\flags\Israel.png" />
+    <Content Include="images\flags\Italy.png" />
+    <Content Include="images\flags\Jamaica.png" />
+    <Content Include="images\flags\Japan.png" />
+    <Content Include="images\flags\Jordan.png" />
+    <Content Include="images\flags\Kazakhstan.png" />
+    <Content Include="images\flags\Kenya.png" />
+    <Content Include="images\flags\Kuwait.png" />
+    <Content Include="images\flags\Liberia.png" />
+    <Content Include="images\flags\license.rtf" />
+    <Content Include="images\flags\Luxembourg.png" />
+    <Content Include="images\flags\Malaysia.png" />
+    <Content Include="images\flags\Mexico.png" />
+    <Content Include="images\flags\Myanmar.png" />
+    <Content Include="images\flags\Nepal.png" />
+    <Content Include="images\flags\Netherlands.png" />
+    <Content Include="images\flags\New-Zealand.png" />
+    <Content Include="images\flags\Norway.png" />
+    <Content Include="images\flags\Paraguay.png" />
+    <Content Include="images\flags\Peru.png" />
+    <Content Include="images\flags\Philippines.png" />
+    <Content Include="images\flags\Poland.png" />
+    <Content Include="images\flags\Portugal.png" />
+    <Content Include="images\flags\Qatar.png" />
+    <Content Include="images\flags\Russia.png" />
+    <Content Include="images\flags\Rwanda.png" />
+    <Content Include="images\flags\Saudi-Arabia.png" />
+    <Content Include="images\flags\Scotland.png" />
+    <Content Include="images\flags\Serbia.png" />
+    <Content Include="images\flags\Singapore.png" />
+    <Content Include="images\flags\Slovakia.png" />
+    <Content Include="images\flags\South-Africa.png" />
+    <Content Include="images\flags\South-Korea.png" />
+    <Content Include="images\flags\Spain.png" />
+    <Content Include="images\flags\Sri-Lanka.png" />
+    <Content Include="images\flags\Sweden.png" />
+    <Content Include="images\flags\Switzerland.png" />
+    <Content Include="images\flags\Taiwan.png" />
+    <Content Include="images\flags\Thailand.png" />
+    <Content Include="images\flags\Turkey.png" />
+    <Content Include="images\flags\Uganda.png" />
+    <Content Include="images\flags\Ukraine.png" />
+    <Content Include="images\flags\United-Arab-Emirates.png" />
+    <Content Include="images\flags\United-Kingdom.png" />
+    <Content Include="images\flags\United-States.png" />
+    <Content Include="images\flags\Uruguay.png" />
+    <Content Include="images\flags\Uzbekistan.png" />
+    <Content Include="images\flags\Vatican-City.png" />
+    <Content Include="images\flags\Venezuela.png" />
+    <Content Include="images\flags\Vietnam.png" />
+    <Content Include="images\flags\Zimbabwe.png" />
     <Content Include="images\logo.png" />
     <Content Include="images\smalllogo.png" />
     <Content Include="images\splashscreen.png" />
@@ -65,9 +151,6 @@
   </ItemGroup>
   <ItemGroup>
     <SDKReference Include="Microsoft.WinJS.1.0, Version=1.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="images\flags\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).targets" />
   <!-- To modify your build process, add your task inside one of the targets below then uncomment

@@ -135,9 +135,11 @@ function isCorrect(inputControl, currentItem) {
                 var listView = document.querySelector('#basicListView').winControl;
                 currentSelection.forEach(function (selectedItem) {
                     var element = listView.elementFromIndex(selectedItem.index);
-                    var inputControl = element.querySelector('.flag-answer-field');
-                    inputControl.value = selectedItem.data.title;
-                    inputControl.disabled = true;
+                    if (element) {
+                        var inputControl = element.querySelector('.flag-answer-field');
+                        inputControl.value = selectedItem.data.title;
+                        inputControl.disabled = true;
+                    }
                 });
             });
 

@@ -22,6 +22,14 @@
     display: -ms-grid;
 }
 
+.win-container {
+    width: 282px;
+    height: 100px;
+    padding: 5px;
+    overflow: hidden;
+    display: -ms-grid;
+}
+
     .mediumListIconTextItem img.mediumListIconTextItem-Image 
     {
         width: 60px;
