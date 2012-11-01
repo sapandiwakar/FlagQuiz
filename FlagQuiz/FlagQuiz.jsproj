@@ -47,13 +47,16 @@
     <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
     <TargetPlatformVersion>8.0</TargetPlatformVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
-    <PackageCertificateKeyFile>FlagQuiz_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>FlagQuiz_StoreKey.pfx</PackageCertificateKeyFile>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <PackageCertificateThumbprint>20896054108C47F61F5BD98E786D16E8F731366E</PackageCertificateThumbprint>
   </PropertyGroup>
   <ItemGroup>
     <AppxManifest Include="package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
     <Content Include="default.html" />
+    <None Include="FlagQuiz_StoreKey.pfx" />
     <Content Include="images\flags\Afghanistan.png" />
     <Content Include="images\flags\Albania.png" />
     <Content Include="images\flags\Algeria.png" />
@@ -147,6 +150,7 @@
     <Content Include="js\data.js" />
     <Content Include="js\default.js" />
     <Content Include="css\default.css" />
+    <None Include="Package.StoreAssociation.xml" />
     <None Include="FlagQuiz_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

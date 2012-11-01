@@ -16,26 +16,15 @@
 
 </head>
 <body>
-    <p>Content goes here</p>
-
-    
-    <div id="mediumListIconTextTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
-        <div class="mediumListIconTextItem">
-            <img src="#" class="mediumListIconTextItem-Image" data-win-bind="src: picture" />
-            <div class="mediumListIconTextItem-Detail">
-                <input class="input-box win-interactive" type="text" />
-                <h4 data-win-bind="innerText: title"></h4>
-                <h6 data-win-bind="innerText: text"></h6>
-            </div>
-        </div>
-    </div>
-    
-
+    <br />
+    <h1>&nbsp;&nbsp; Identify the Flag</h1>
+    <br />
+       <!--  -->
     <div id="basicListView" data-win-control="WinJS.UI.ListView" 
         data-win-options="{
             itemDataSource : DataExample.itemList.dataSource, 
             itemTemplate: MyInteractiveTemplate,
-            selectionMode: 'multi'
+            selectionMode: 'none'
         }">
     </div>
 

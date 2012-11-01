@@ -64,8 +64,7 @@
             { title: 'Vatican-City', text: 'Flag', picture: 'images/flags/Vatican-City.png' },
             { title: 'Nepal', text: 'Flag', picture: 'images/flags/Nepal.png' },
             { title: 'Finland', text: 'Flag', picture: 'images/flags/Finland.png' },
-            { title: 'Iraq', text: 'Flag', picture: 'images/flags/Iraq.png' },
-            { title: 'license', text: 'Flag', picture: 'images/flags/license.rtf' },
+            { title: 'Iraq', text: 'Flag', picture: 'images/flags/Iraq.png' },            
             { title: 'Thailand', text: 'Flag', picture: 'images/flags/Thailand.png' },
             { title: 'Vietnam', text: 'Flag', picture: 'images/flags/Vietnam.png' },
             { title: 'Hungary', text: 'Flag', picture: 'images/flags/Hungary.png' },
@@ -87,7 +86,7 @@
             { title: 'Russia', text: 'Flag', picture: 'images/flags/Russia.png' },
             { title: 'Paraguay', text: 'Flag', picture: 'images/flags/Paraguay.png' },
             { title: 'New-Zealand', text: 'Flag', picture: 'images/flags/New-Zealand.png' },
-            { title: 'South-Korea', text: 'Flag', picture: 'images/flags/South-Korea.png' },
+            { title: 'South-Korea', text: 'Flag', picture: 'images/flags/South-Korea.png' },            
             { title: 'Italy', text: 'Flag', picture: 'images/flags/Italy.png' },
     ];
 

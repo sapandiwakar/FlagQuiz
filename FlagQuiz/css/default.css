@@ -13,33 +13,27 @@
 @media screen and (-ms-view-state: fullscreen-portrait) {
 }
 
-.mediumListIconTextItem
-{
-    width: 282px;
-    height: 70px;
-    padding: 5px;
-    overflow: hidden;
-    display: -ms-grid;
-}
-
 .win-container {
     width: 282px;
-    height: 100px;
+    height: 108px;
     padding: 5px;
     overflow: hidden;
     display: -ms-grid;
 }
 
-    .mediumListIconTextItem img.mediumListIconTextItem-Image 
-    {
-        width: 60px;
-        height: 60px;
-        margin: 5px;
-        -ms-grid-column: 1;
-    }
+#basicListView {
+    height: 85%;
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
 
-    .mediumListIconTextItem .mediumListIconTextItem-Detail
-    {
-        margin: 5px;
-        -ms-grid-column: 2;
-    }
+#basicListView.win-listview > .win-horizontal .win-container {
+   margin-bottom: 12px;
+   margin-left: 12px;
+   margin-right: 12px;
+   margin-top: 12px;
+}
+
+.win-interactive.flag-answer-field.incorrect-answer {
+    background-color: red;
+}

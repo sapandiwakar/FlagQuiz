@@ -1,7 +1,4 @@
-﻿// For an introduction to the Blank template, see the following documentation:
-// http://go.microsoft.com/fwlink/?LinkId=232509
-
-var applicationData = Windows.Storage.ApplicationData.current;
+﻿var applicationData = Windows.Storage.ApplicationData.current;
 var localSettings = applicationData.localSettings;
 
 var MyInteractiveTemplate = WinJS.Utilities.markSupportedForProcessing(function MyInteractiveTemplate(itemPromise) {
@@ -50,6 +47,12 @@ var MyInteractiveTemplate = WinJS.Utilities.markSupportedForProcessing(function 
         //}
 
         // Attach an event listener on the rating control
+        inputControl.onkeyup = function (e) {
+            e.which = e.which || e.keyCode;
+            if (e.which == 13) { // enter key pressed
+                inputControl.onfocusout(e);
+            }
+        };
         inputControl.onfocusout = function (event) {
             if (isCorrect(inputControl, currentItem)) {
 
@@ -63,8 +66,14 @@ var MyInteractiveTemplate = WinJS.Utilities.markSupportedForProcessing(function 
                 Windows.Storage.ApplicationData.current.localSettings.values['correctFlags'] = JSON.stringify(correctFlags);
 
                 inputControl.disabled = true;
+                inputControl.value = currentItem.data.title;
                 var listView = document.querySelector('#basicListView').winControl;
                 listView.selection.add(currentItem.index);
+                WinJS.Utilities.removeClass(inputControl, 'incorrect-answer');
+            } else if (inputControl.value !== '') {
+                WinJS.Utilities.addClass(inputControl, 'incorrect-answer');
+            } else {
+                WinJS.Utilities.removeClass(inputControl, 'incorrect-answer');
             }
         };
 
@@ -76,7 +85,46 @@ function isCorrect(inputControl, currentItem) {
     // TODO: Check if the answer was correct.
     // inputControl.value = user entered value
     // currentItem.index = index of flag.
-    return (currentItem.data.title === inputControl.value);
+    if (currentItem.data.title.toLowerCase() === inputControl.value.toLowerCase()) {
+        return true;
+    }
+    var nonAlphabeticChars = currentItem.data.title.split(/[^A-Za-z]/).length;
+    return (levenshteinDistance(currentItem.data.title.toLowerCase(), inputControl.value.toLowerCase()) <= nonAlphabeticChars);
+}
+
+function levenshteinDistance(a, b) {
+    if (a.length == 0) return b.length;
+    if (b.length == 0) return a.length;
+
+    var matrix = [];
+
+    // increment along the first column of each row
+    var i;
+    for (i = 0; i <= b.length; i++) {
+        matrix[i] = [i];
+    }
+
+    // increment each column in the first row
+    var j;
+    for (j = 0; j <= a.length; j++) {
+        matrix[0][j] = j;
+    }
+
+    // Fill in the rest of the matrix
+    for (i = 1; i <= b.length; i++) {
+        for (j = 1; j <= a.length; j++) {
+            if (b.charAt(i - 1) == a.charAt(j - 1)) {
+                matrix[i][j] = matrix[i - 1][j - 1];
+            } else {
+                matrix[i][j] = Math.min(matrix[i - 1][j - 1] + 1, // substitution
+                                        Math.min(matrix[i][j - 1] + 1, // insertion
+                                                 matrix[i - 1][j] + 1)); // deletion
+            }
+        }
+    }
+
+    return matrix[b.length][a.length];
+
 }
 
 (function () {
